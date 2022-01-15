@@ -1,0 +1,23 @@
+{
+  "name": "xkcd-wrapper",
+  "version": "1.0.0",
+  "description": "xkcd.com wrapper",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/James-Bennett-295/npm-xkcd-wrapper.git"
+  },
+  "keywords": [
+    "xkcd",
+    "wrapper"
+  ],
+  "author": "James Bennett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/James-Bennett-295/npm-xkcd-wrapper/issues"
+  },
+  "homepage": "https://github.com/James-Bennett-295/npm-xkcd-wrapper#readme",
+  "dependencies": {
+    "@james-bennett-295/logger": "^1.0.0"
+  }
+}
