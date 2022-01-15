@@ -53,6 +53,36 @@ function getPost(postNum) {
     return promise;
 };
 
+function getRandom() {
+    var promise = new Promise((resolve, reject) => {
+        axios.get("https://xkcd.com/info.0.json")
+            .then(res => {
+                var postNum = Math.floor(Math.random() * (res.data.num - 2) + 1);
+                axios.get("https://xkcd.com/" + postNum + "/info.0.json")
+                    .then(res => {
+                        var postDate = new Date(parseInt(res.data.year), parseInt(res.data.month), parseInt(res.data.day));
+                        var obj = {
+                            link: "https://xkcd.com/" + res.data.num + "/",
+                            num: parseInt(res.data.num),
+                            title: res.data.title,
+                            safeTitle: res.data.safe_title,
+                            date: postDate,
+                            alt: res.data.alt,
+                            imgUrl: res.data.img
+                        };
+                        resolve(obj);
+                    })
+                    .catch(err => {
+                        reject(err);
+                    });
+            })
+            .catch(err => {
+                reject(err);
+            });
+    });
+    return promise;
+};
+
 function subscribe(newPostCheckIntervalInSeconds, dataFilePath) {
     if (typeof (newPostCheckIntervalInSeconds) === "undefined") newPostCheckIntervalInSeconds = 3600;
     if (typeof (dataFilePath) === "undefined") dataFilePath = "./xkcdWrapperData.json";
@@ -117,4 +147,4 @@ function msg(msg, obj) {
         .replaceAll("{imgUrl}", obj.imgUrl);
 };
 
-module.exports = { getLatest, getPost, subscribe, msg, events };
+module.exports = { getLatest, getPost, getRandom, subscribe, msg, events };

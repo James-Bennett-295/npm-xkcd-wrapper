@@ -29,7 +29,7 @@ xkcd.getLatest()
 const xkcd = require("xkcd-wrapper");
 xkcd.getPost(369) // Args: Post number
     .then(obj => {
-        console.log(obj.link);
+        console.log("xkcd post 369 is titled " + obj.title);
     })
     .catch(err => {
         console.log(err);
@@ -38,6 +38,19 @@ xkcd.getPost(369) // Args: Post number
 ```js
 /*
  * Example Three
+ */
+const xkcd = require("xkcd-wrapper");
+xkcd.getRandom()
+    .then(obj => {
+        console.log(obj.link);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+```
+```js
+/*
+ * Example Four
  */
 const xkcd = require("xkcd-wrapper");
 xkcd.events.on("newPost", (obj) => {
