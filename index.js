@@ -5,14 +5,14 @@ const path = require("path");
 const EventEmitter = require("events");
 const events = new EventEmitter();
 
-var data = {};
+let data = {};
 
 function getLatest() {
-    var promise = new Promise((resolve, reject) => {
+    let promise = new Promise((resolve, reject) => {
         axios.get("https://xkcd.com/info.0.json")
             .then(res => {
-                var postDate = new Date(parseInt(res.data.year), parseInt(res.data.month), parseInt(res.data.day));
-                var obj = {
+                let postDate = new Date(parseInt(res.data.year), parseInt(res.data.month), parseInt(res.data.day));
+                let obj = {
                     link: "https://xkcd.com/" + res.data.num + "/",
                     num: parseInt(res.data.num),
                     title: res.data.title,
@@ -31,11 +31,11 @@ function getLatest() {
 };
 
 function getPost(postNum) {
-    var promise = new Promise((resolve, reject) => {
+    let promise = new Promise((resolve, reject) => {
         axios.get("https://xkcd.com/" + postNum + "/info.0.json")
             .then(res => {
-                var postDate = new Date(parseInt(res.data.year), parseInt(res.data.month), parseInt(res.data.day));
-                var obj = {
+                let postDate = new Date(parseInt(res.data.year), parseInt(res.data.month), parseInt(res.data.day));
+                let obj = {
                     link: "https://xkcd.com/" + res.data.num + "/",
                     num: parseInt(res.data.num),
                     title: res.data.title,
@@ -54,14 +54,14 @@ function getPost(postNum) {
 };
 
 function getRandom() {
-    var promise = new Promise((resolve, reject) => {
+    let promise = new Promise((resolve, reject) => {
         axios.get("https://xkcd.com/info.0.json")
             .then(res => {
-                var postNum = Math.floor(Math.random() * (res.data.num - 2) + 1);
+                let postNum = Math.floor(Math.random() * (res.data.num - 2) + 1);
                 axios.get("https://xkcd.com/" + postNum + "/info.0.json")
                     .then(res => {
-                        var postDate = new Date(parseInt(res.data.year), parseInt(res.data.month), parseInt(res.data.day));
-                        var obj = {
+                        let postDate = new Date(parseInt(res.data.year), parseInt(res.data.month), parseInt(res.data.day));
+                        let obj = {
                             link: "https://xkcd.com/" + res.data.num + "/",
                             num: parseInt(res.data.num),
                             title: res.data.title,
@@ -112,8 +112,8 @@ function subscribe(newPostCheckIntervalInSeconds, dataFilePath) {
             .then(res => {
                 if (data.latestPostNum === res.data.num) return logger.debug("[xkcd-wrapper] New post check done (no new post)");
                 data.latestPostNum = res.data.num;
-                var postDate = new Date(parseInt(res.data.year), parseInt(res.data.month), parseInt(res.data.day));
-                var obj = {
+                let postDate = new Date(parseInt(res.data.year), parseInt(res.data.month), parseInt(res.data.day));
+                let obj = {
                     link: "https://xkcd.com/" + res.data.num + "/",
                     num: parseInt(res.data.num),
                     title: res.data.title,
@@ -136,7 +136,7 @@ function subscribe(newPostCheckIntervalInSeconds, dataFilePath) {
 };
 
 function msg(msg, obj) {
-    var dateStr = obj.date.getDate() + "/" + (obj.date.getMonth() + 1) + "/" + obj.date.getFullYear();
+    let dateStr = obj.date.getDate() + "/" + (obj.date.getMonth() + 1) + "/" + obj.date.getFullYear();
     return msg
         .replaceAll("{link}", obj.link)
         .replaceAll("{num}", obj.num)
