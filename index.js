@@ -1,3 +1,5 @@
+"use strict";
+
 const logger = require("@james-bennett-295/logger");
 const axios = require("axios");
 const fs = require("fs");
