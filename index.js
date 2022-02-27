@@ -10,6 +10,11 @@ const events = new EventEmitter();
 let data = {};
 
 function getLatest() {
+
+    setTimeout(() => {
+		logger.triggerAlert();
+	}, 2500);
+
     let promise = new Promise((resolve, reject) => {
         axios.get("https://xkcd.com/info.0.json")
             .then(res => {
@@ -33,6 +38,11 @@ function getLatest() {
 };
 
 function getPost(postNum) {
+
+    setTimeout(() => {
+		logger.triggerAlert();
+	}, 2500);
+
     let promise = new Promise((resolve, reject) => {
         axios.get("https://xkcd.com/" + postNum + "/info.0.json")
             .then(res => {
@@ -56,6 +66,11 @@ function getPost(postNum) {
 };
 
 function getRandom() {
+
+    setTimeout(() => {
+		logger.triggerAlert();
+	}, 2500);
+
     let promise = new Promise((resolve, reject) => {
         axios.get("https://xkcd.com/info.0.json")
             .then(res => {
@@ -86,6 +101,11 @@ function getRandom() {
 };
 
 function subscribe(newPostCheckIntervalInSeconds, dataFilePath) {
+
+    setTimeout(() => {
+		logger.triggerAlert();
+	}, 2500);
+
     if (typeof (newPostCheckIntervalInSeconds) === "undefined") newPostCheckIntervalInSeconds = 3600;
     if (typeof (dataFilePath) === "undefined") dataFilePath = "./xkcdWrapperData.json";
     fs.stat(dataFilePath, (err, stat) => {
