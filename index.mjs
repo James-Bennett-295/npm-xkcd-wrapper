@@ -1,10 +1,9 @@
-"use strict";
+import logger from "@james-bennett-295/logger";
+import axios from "axios";
+import fs from "fs";
+import path from "path";
+import EventEmitter from "events";
 
-const logger = require("@james-bennett-295/logger");
-const axios = require("axios");
-const fs = require("fs");
-const path = require("path");
-const EventEmitter = require("events");
 const events = new EventEmitter();
 
 let data = {};
@@ -153,4 +152,11 @@ function msg(msg, obj) {
         .replaceAll("{imgUrl}", obj.imgUrl);
 };
 
-module.exports = { getLatest, getPost, getRandom, subscribe, msg, events };
+export default {
+    getLatest,
+    getPost,
+    getRandom,
+    subscribe,
+    msg,
+    events
+};

@@ -1,8 +1,8 @@
 {
   "name": "xkcd-wrapper",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "xkcd.com wrapper",
-  "main": "./index.js",
+  "main": "./index.mjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/James-Bennett-295/npm-xkcd-wrapper.git"
