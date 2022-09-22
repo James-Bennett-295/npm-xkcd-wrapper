@@ -8,13 +8,13 @@ interface Post {
 	imgUrl: string
 }
 
-export function getLatest(): Post;
+export function getLatest(): Promise<Post>;
 
 export function getPost(
 	postNum: number
-): Post;
+): Promise<Post>;
 
-export function getRandom(): Post;
+export function getRandom(): Promise<Post>;
 
 export function subscribe(
 	newPostCheckIntervalInSeconds?: number,
