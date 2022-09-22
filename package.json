@@ -1,6 +1,6 @@
 {
   "name": "xkcd-wrapper",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "xkcd.com wrapper",
   "main": "./index.js",
   "types": "./index.d.ts",

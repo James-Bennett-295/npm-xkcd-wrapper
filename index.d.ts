@@ -24,6 +24,8 @@ export function subscribe(
 export function msg(
 	msg: string,
 	obj: Post
-): text;
+): string;
 
-export const events: object;
+export const events: {
+	on: (eventName: string, fn: (obj: Post) => void) => void
+}
