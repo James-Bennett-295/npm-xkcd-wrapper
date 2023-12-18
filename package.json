@@ -20,6 +20,6 @@
   "homepage": "https://github.com/James-Bennett-295/npm-xkcd-wrapper#readme",
   "dependencies": {
     "@james-bennett-295/logger": "^2.2.1",
-    "axios": "^0.25.0"
+    "axios": "^1.6.2"
   }
 }
